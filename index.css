@@ -1,0 +1,294 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap");
+body {
+  font-family: "Space Grotesk";
+  height: 100%;
+}
+html {
+  height: 100%;
+}
+
+.colored-bg {
+  height: 100%;
+  width: 550px;
+  background-image: url("./images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  position: absolute;
+}
+.card-front-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 50%;
+  width: 680px;
+  position: absolute;
+  z-index: 101;
+}
+.card-front {
+  color: hsl(276, 7%, 86%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 260px;
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 2px;
+  width: 500px;
+  border-radius: 10px;
+  background-image: url("./images/bg-card-front.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* box-shadow: 1px 2px 9px #221616; */
+}
+.card-front-headder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 120px;
+  margin-bottom: 20px;
+}
+.card-back-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 81%;
+  width: 780px;
+  position: absolute;
+  z-index: 100;
+}
+.card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 260px;
+  width: 500px;
+  border-radius: 10px;
+  background-image: url("./images/bg-card-back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  box-shadow: 1px 1px 5px #929191;
+}
+.cvc-digits-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  width: 370px;
+  height: 50px;
+  color: hsl(276, 7%, 86%);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.name-date {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  width: 415px;
+  height: 20px;
+  color: hsl(276, 7%, 86%);
+}
+.white-bg {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 78%;
+  height: 77%;
+}
+#box {
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+  height: 450px;
+  letter-spacing: 2px;
+}
+.name-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 90px;
+  font-weight: 500;
+}
+.name-input input {
+  width: 452px;
+  height: 50px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Space Grotesk";
+  color: rgb(199, 198, 198);
+}
+.card-number-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 90px;
+  font-weight: 500;
+}
+.card-number-input input {
+  width: 452px;
+  height: 50px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.date-cvc {
+  margin-top: 30px;
+  display: flex;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 90px;
+  font-weight: 500;
+}
+.date-mm-input input {
+  width: 70px;
+  height: 50px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+.date-yy-input input {
+  width: 70px;
+  height: 50px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  padding-left: 20px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.date-input-wrapper {
+  display: flex;
+  margin-top: 10px;
+}
+
+.cvc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  width: 100%;
+  font-weight: 500;
+}
+.cvc input {
+  margin-top: 10px;
+  width: 220px;
+  height: 50px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+input:focus {
+  outline: none;
+  border-width: 1px;
+  border-color: black;
+}
+.confirm-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100px;
+}
+.confirm-button button {
+  height: 65px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  background: hsl(278, 68%, 11%);
+  color: white;
+  font-size: 20px;
+  font-family: "Space Grotesk";
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.error {
+  margin-top: 5px;
+  letter-spacing: normal;
+  font-size: 13px;
+  color: hsl(0, 100%, 66%);
+}
+.success_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 450px;
+  position: absolute;
+}
+.success_box_child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 290px;
+  width: 300px;
+}
+.success_h_p {
+  text-align: center;
+}
+.success_h_p h1 {
+  letter-spacing: 4px;
+}
+
+.success_h_p p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: hsl(285, 2%, 66%);
+}
+
+.success_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100px;
+}
+.success_button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 390px;
+  border-radius: 10px;
+  border: solid rgb(204, 198, 198);
+  border-width: 1px;
+  background: hsl(278, 68%, 11%);
+  color: white;
+  font-size: 20px;
+  font-family: "Space Grotesk";
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.hidden {
+  display: none;
+}
+.custom-spacing span {
+  margin-right: 20px;
+}

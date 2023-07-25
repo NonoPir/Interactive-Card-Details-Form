@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Interactive card details form</title>
+  </head>
+  <body>
+    <!-- Completed state start -->
+    <div class="colored-bg"></div>
+    <div class="card-front-wrapper">
+      <div class="card-front">
+        <div class="card-front-headder">
+          <div id="digits">
+            <p class="custom-spacing">
+              <span id="first_span">0000</span><span id="second_span">0000</span
+              ><span id="third_span">0000</span
+              ><span id="fourth_span">0000</span>
+            </p>
+          </div>
+          <div class="name-date">
+            <div class="card-name"><p id="cardholder_name">JOHN DOE</p></div>
+            <div class="card-date">
+              <p>
+                <span id="first_two_zeros">00</span>/<span id="second_two_zeros"
+                  >00</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-back-wrapper">
+      <div class="card-back">
+        <div class="cvc-digits-wrapper">
+          <div class="cvc-digits">
+            <p id="cvc_digits">000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="white-bg">
+      <div class="box">
+        <div class="name-wrapper">
+          <div class="name-header"><p>CARDHOLDER NAME</p></div>
+          <div class="name-input">
+            <input
+              id="input_name"
+              type="text"
+              placeholder="e.g. John Doe"
+              oninput="checkNumbers()"
+            />
+          </div>
+          <div>
+            <p id="error_name" class="error hidden">
+              Wrong format, letters only
+            </p>
+            <p id="blank_name" class="error hidden">Can't be blank</p>
+          </div>
+        </div>
+        <div class="card-number-wrapper">
+          <div class="card-number-header"><p>CARD NUMBER</p></div>
+          <div class="card-number-input">
+            <input
+              id="number_input"
+              type="text"
+              placeholder="e.g. 1234 5678 9123 0000"
+              oninput="checkLetters()"
+            />
+          </div>
+          <div>
+            <p class="error hidden" id="error_number">
+              Wrong format, numbers only
+            </p>
+            <p id="blank_number" class="error hidden">Can't be blank</p>
+          </div>
+        </div>
+        <div class="date-cvc">
+          <div class="date">
+            <div class="date-header">
+              <p>EXP. DATE (MM/YY)</p>
+            </div>
+            <div class="date-input-wrapper">
+              <div class="date-mm-input">
+                <input
+                  id="mm"
+                  type="text"
+                  placeholder="MM"
+                  oninput="checkDateInput()"
+                />
+              </div>
+              <div class="date-yy-input">
+                <input
+                  id="yy"
+                  type="text"
+                  placeholder="YY"
+                  oninput="checkDateInput()"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="cvc">
+            <div class="cvc-header"><p>CVC</p></div>
+            <div>
+              <input
+                id="cvc_input"
+                type="text"
+                placeholder="e.g. 123"
+                oninput="checkCvcInput()"
+              />
+              <div>
+                <p id="cvc_blank" class="error hidden" style="margin-top: 10px">
+                  Can't be blank
+                </p>
+                <p id="cvc_error" class="error hidden" style="margin-top: 10px">
+                  Wrong format, numbers only
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="error hidden" id="date_blank">Can't be blank</p>
+          <p class="error hidden" id="date_error">Wrong format, numbers only</p>
+        </div>
+        <div class="confirm-button">
+          <button id="btn" onclick="checkBlankInputs()">Confirm</button>
+        </div>
+      </div>
+      <div class="success_box hidden">
+        <div class="success_box_child">
+          <div class="success_img">
+            <img src="./images/icon-complete.svg" alt="" />
+          </div>
+          <div class="success_h_p">
+            <h1>THANK YOU!</h1>
+            <p>We've added your card details</p>
+          </div>
+        </div>
+        <div class="success_button">
+          <button id="continue_button" onclick="refreshDefaultData()">
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
