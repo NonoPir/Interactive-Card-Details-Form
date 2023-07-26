@@ -24,6 +24,8 @@ const firstTwoZeros = document.getElementById("first_two_zeros");
 const secondTwoZeros = document.getElementById("second_two_zeros");
 const cvcDigits = document.getElementById("cvc_digits");
 const successMessage = document.getElementById("success_message");
+const inputForm = document.getElementById("input_form");
+const continueButton = document.getElementById("continue_button");
 
 const errorsArr = [
   nameError,
@@ -185,8 +187,6 @@ cvcInput.addEventListener("input", function () {
   cvcDigitsInput === ""
     ? (cvcDigits.textContent = "000")
     : (cvcDigits.textContent = cvcDigitsInput);
-
-  cvcDigitsInput.length === 3 ? cvcInput.blur() : "";
 });
 
 const refreshDefaultData = function () {
@@ -208,3 +208,14 @@ const displayName = () => {
   const result = upperFirstLetter + nameInput.value.split(" ")[0].slice(1);
   successMessage.textContent = `${result}, We've added your card details`;
 };
+
+inputForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter" && !successBox.classList.contains("hidden")) {
+    event.preventDefault(); // Prevent form submission (if it's inside a form)
+    continueButton.click(); // Programmatically click the button
+  }
+});
