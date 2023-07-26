@@ -141,7 +141,9 @@
           <p class="error hidden" id="date_error">Wrong format, numbers only</p>
         </div>
         <div class="confirm-button">
-          <button id="btn" onclick="checkBlankInputs()">Confirm</button>
+          <button id="btn" onclick="checkBlankInputs(); displayName()">
+            Confirm
+          </button>
         </div>
       </div>
       <div class="success_box hidden">
@@ -151,7 +153,7 @@
           </div>
           <div class="success_h_p">
             <h1>THANK YOU!</h1>
-            <p>We've added your card details</p>
+            <p id="success_message">We've added your card details</p>
           </div>
         </div>
         <div class="success_button">
