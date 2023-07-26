@@ -23,7 +23,7 @@ const cardholderName = document.getElementById("cardholder_name");
 const firstTwoZeros = document.getElementById("first_two_zeros");
 const secondTwoZeros = document.getElementById("second_two_zeros");
 const cvcDigits = document.getElementById("cvc_digits");
-
+const successMessage = document.getElementById("success_message");
 const errorsArr = [
   nameError,
   numberError,
@@ -184,6 +184,8 @@ cvcInput.addEventListener("input", function () {
   cvcDigitsInput === ""
     ? (cvcDigits.textContent = "000")
     : (cvcDigits.textContent = cvcDigitsInput);
+
+  cvcDigitsInput.length === 3 ? cvcInput.blur() : "";
 });
 
 const refreshDefaultData = function () {
@@ -195,4 +197,13 @@ const refreshDefaultData = function () {
   firstTwoZeros.textContent = "00";
   secondTwoZeros.textContent = "00";
   cvcDigits.textContent = "000";
+};
+
+const displayName = () => {
+  const upperFirstLetter = nameInput.value
+    .split(" ")[0]
+    .charAt(0)
+    .toUpperCase();
+  const result = upperFirstLetter + nameInput.value.split(" ")[0].slice(1);
+  successMessage.textContent = `${result}, We've added your card details`;
 };
