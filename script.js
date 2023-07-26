@@ -46,18 +46,30 @@ const addHiddenClass = (id) => id.classList.add("hidden");
 
 const removeHiddenClass = (id) => id.classList.remove("hidden");
 
+const addInputErrorClass = (input) => input.classList.add("input_error");
+
+const removeInputErrorClass = (input) => input.classList.remove("input_error");
+
 const checkNumbers = () => {
-  /^[a-zA-Z\s]*$/.test(nameInput.value)
-    ? addHiddenClass(nameError)
-    : removeHiddenClass(nameError);
+  if (/^[a-zA-Z\s]*$/.test(nameInput.value)) {
+    addHiddenClass(nameError);
+    removeInputErrorClass(nameInput);
+  } else {
+    removeHiddenClass(nameError);
+    addInputErrorClass(nameInput);
+  }
 
   nameInput.value.length > 0 ? addHiddenClass(blankName) : "";
 };
 
 const checkLetters = () => {
-  /^\d*$/.test(numberInput.value)
-    ? addHiddenClass(numberError)
-    : removeHiddenClass(numberError);
+  if (/^\d*$/.test(numberInput.value)) {
+    addHiddenClass(numberError);
+    removeInputErrorClass(numberInput);
+  } else {
+    removeHiddenClass(numberError);
+    addInputErrorClass(numberInput);
+  }
 
   numberInput.value.length > 16
     ? (numberInput.value = numberInput.value.slice(0, 16))
@@ -67,10 +79,15 @@ const checkLetters = () => {
   numberInput.value.length === 16 ? monthInput.focus() : "";
 };
 const checkDateInput = () => {
-  /^\d*$/.test(monthInput.value) && /^\d*$/.test(yearInput.value)
-    ? addHiddenClass(dateError)
-    : removeHiddenClass(dateError);
-
+  if (/^\d*$/.test(monthInput.value) && /^\d*$/.test(yearInput.value)) {
+    addHiddenClass(dateError);
+    removeInputErrorClass(yearInput);
+    removeInputErrorClass(monthInput);
+  } else {
+    removeHiddenClass(dateError);
+    addInputErrorClass(yearInput);
+    addInputErrorClass(monthInput);
+  }
   if (monthInput.value.length > 2) {
     monthInput.value = monthInput.value.slice(0, 2);
   }
@@ -79,9 +96,13 @@ const checkDateInput = () => {
   }
 };
 const checkCvcInput = function () {
-  /^\d*$/.test(cvcInput.value)
-    ? addHiddenClass(cvcError)
-    : removeHiddenClass(cvcError);
+  if (/^\d*$/.test(cvcInput.value)) {
+    addHiddenClass(cvcError);
+    removeInputErrorClass(cvcInput);
+  } else {
+    removeHiddenClass(cvcError);
+    addInputErrorClass(cvcInput);
+  }
 
   if (cvcInput.value.length > 3) {
     cvcInput.value = cvcInput.value.slice(0, 3);
@@ -91,30 +112,51 @@ const checkCvcInput = function () {
 const checkBlankInputs = function () {
   if (nameInput.value === "") {
     removeHiddenClass(blankName);
+    addInputErrorClass(nameInput);
   } else if (!nameInput.value.includes(" ")) {
     removeHiddenClass(blankName);
+    addInputErrorClass(nameInput);
     blankName.textContent = "Must include name and surname";
-  } else addHiddenClass(blankName);
+  } else {
+    addHiddenClass(blankName);
+    removeInputErrorClass(nameInput);
+  }
   if (numberInput.value === "") {
     removeHiddenClass(blankNumber);
+    addInputErrorClass(numberInput);
     blankNumber.textContent = "Can't be blank";
   } else if (numberInput.value.length < 16 && numberInput.value.length > 0) {
     removeHiddenClass(blankNumber);
+    addInputErrorClass(numberInput);
     blankNumber.textContent = "Must be 16 digits";
   } else {
     addHiddenClass(blankNumber);
+    removeInputErrorClass(numberInput);
   }
   if (monthInput.value === "") {
     removeHiddenClass(dateBlank);
-  } else addHiddenClass(dateBlank);
+    addInputErrorClass(monthInput);
+  } else {
+    addHiddenClass(dateBlank);
+    removeInputErrorClass(monthInput);
+  }
   if (yearInput.value === "") {
     removeHiddenClass(dateBlank);
-  } else addHiddenClass(dateBlank);
+    addInputErrorClass(yearInput);
+  } else {
+    addHiddenClass(dateBlank);
+    removeInputErrorClass(yearInput);
+  }
   if (cvcInput.value === "") {
     removeHiddenClass(cvcBlank);
-  } else addHiddenClass(cvcBlank);
+    addInputErrorClass(cvcInput);
+  } else {
+    addHiddenClass(cvcBlank);
+    removeInputErrorClass(cvcInput);
+  }
   if (cvcInput.value.length < 3 && cvcInput.value.length > 0) {
     removeHiddenClass(cvcBlank);
+    addInputErrorClass(cvcInput);
     cvcBlank.textContent = "Must be 3 digits";
   }
 
@@ -122,8 +164,15 @@ const checkBlankInputs = function () {
     (monthInput.value.length < 2 && monthInput.value.length > 0) ||
     (yearInput.value.length < 2 && yearInput.value.length > 0)
   ) {
-    removeHiddenClass(dateBlank);
-    dateBlank.textContent = "Must be 2 digits";
+    if (monthInput.value.length < 2 && monthInput.value.length > 0) {
+      removeHiddenClass(dateBlank);
+      addInputErrorClass(monthInput);
+      dateBlank.textContent = "Must be 2 digits";
+    } else if (yearInput.value.length < 2 && yearInput.value.length > 0) {
+      removeHiddenClass(dateBlank);
+      addInputErrorClass(yearInput);
+      dateBlank.textContent = "Must be 2 digits";
+    }
   } else if (monthInput.value === "" || yearInput.value === "") {
     removeHiddenClass(dateBlank);
     dateBlank.textContent = "Can't be blank";

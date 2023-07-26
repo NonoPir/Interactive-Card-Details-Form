@@ -201,7 +201,8 @@ html {
   width: 220px;
   height: 50px;
   border-radius: 10px;
-  border: solid rgb(204, 198, 198);
+  border: solid;
+  border-color: rgb(204, 198, 198);
   border-width: 1px;
   padding-left: 20px;
   font-size: 16px;
@@ -291,4 +292,11 @@ input:focus {
 }
 .custom-spacing span {
   margin-right: 20px;
+}
+.cvc .input_error,
+.date-mm-input .input_error,
+.date-yy-input .input_error,
+.card-number-input .input_error,
+.name-input .input_error {
+  border-color: red;
 }
