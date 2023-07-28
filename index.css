@@ -108,6 +108,7 @@ html {
   width: 470px;
   height: 450px;
   letter-spacing: 2px;
+  position: absolute;
 }
 .name-wrapper {
   display: flex;
@@ -299,4 +300,22 @@ input:focus {
 .card-number-input .input_error,
 .name-input .input_error {
   border-color: red;
+}
+@media (max-width: 1618px) {
+  .white-bg {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 95%;
+    height: 77%;
+  }
+}
+@media (max-width: 1346px) {
+  .white-bg {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 99%;
+    height: 77%;
+  }
 }
